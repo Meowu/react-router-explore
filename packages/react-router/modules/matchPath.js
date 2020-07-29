@@ -10,6 +10,7 @@ function compilePath(path, options) {
 
   if (pathCache[path]) return pathCache[path];
 
+  // keys 是什么？params？
   const keys = [];
   const regexp = pathToRegexp(path, keys, options);
   const result = { regexp, keys };
@@ -26,6 +27,7 @@ function compilePath(path, options) {
  * Public API for matching a URL pathname to a path.
  */
 function matchPath(pathname, options = {}) {
+  // 一个组件可能匹配多个 path ？
   if (typeof options === "string" || Array.isArray(options)) {
     options = { path: options };
   }
